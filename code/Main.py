@@ -28,6 +28,7 @@ class Main:
             print(f"Kilometraje: {vehiculo.get_kilometraje()}")
             print(f"Estado actual: {vehiculo.get_estado_actual()}")
             print(f"Tipo de combustible: {vehiculo.get_tipo_combustible()}")
+            print(f"Potencia {vehiculo.get_potencia()}")
             print("-" * 30)  
 
 if __name__ == "__main__":
