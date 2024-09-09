@@ -1,4 +1,7 @@
 class Vehiculo:
+
+    COMBUSTIBLES_PERMITIDOS = {"Gasolina", "Diesel", "Eléctrico"}
+
     def __init__(self, marca, modelo, año, kilometraje, estado_actual, tipo_combustible):
         self._marca = marca
         self._modelo = modelo
@@ -42,3 +45,8 @@ class Vehiculo:
 
     def set_tipo_combustible(self, tipo_combustible):
         self._tipo_combustible = tipo_combustible
+
+    def tipo_combustible(self, valor: str) -> None:
+        if valor not in Vehiculo.COMBUSTIBLES_PERMITIDOS:
+            raise ValueError(f"Tipo de combustible no válido. Debe ser uno de: {', '.join(Vehiculo.COMBUSTIBLES_PERMITIDOS)}")
+        self._tipo_combustible = valor
