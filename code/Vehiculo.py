@@ -1,15 +1,17 @@
 class Vehiculo:
-
+    
     COMBUSTIBLES_PERMITIDOS = {"Gasolina", "Diesel", "Eléctrico"}
 
-    def __init__(self, marca, modelo, año, kilometraje, estado_actual, tipo_combustible):
+    def __init__(self, marca, modelo, año, kilometraje, estado_actual, tipo_combustible, color):
         self._marca = marca
         self._modelo = modelo
         self._año = año
         self._kilometraje = kilometraje
         self._estado_actual = estado_actual
-        self._tipo_combustible = tipo_combustible
+        self._color = color
+        self.tipo_combustible(tipo_combustible)  # Validar tipo de combustible al inicializar
 
+    # Getters
     def get_marca(self):
         return self._marca
 
@@ -28,6 +30,10 @@ class Vehiculo:
     def get_tipo_combustible(self):
         return self._tipo_combustible
 
+    def get_color(self):
+        return self._color
+
+    # Setters
     def set_marca(self, marca):
         self._marca = marca
 
@@ -44,8 +50,12 @@ class Vehiculo:
         self._estado_actual = estado_actual
 
     def set_tipo_combustible(self, tipo_combustible):
-        self._tipo_combustible = tipo_combustible
+        self.tipo_combustible(tipo_combustible)  # Usar el método de validación
 
+    def set_color(self, color):
+        self._color = color
+
+    # Método para validar tipo de combustible
     def tipo_combustible(self, valor: str) -> None:
         if valor not in Vehiculo.COMBUSTIBLES_PERMITIDOS:
             raise ValueError(f"Tipo de combustible no válido. Debe ser uno de: {', '.join(Vehiculo.COMBUSTIBLES_PERMITIDOS)}")
