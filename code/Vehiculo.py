@@ -1,6 +1,6 @@
 class Vehiculo:
 
-    COMBUSTIBLES_PERMITIDOS = {"Gasolina", "Diesel", "Eléctrico"}
+    COMBUSTIBLES_PERMITIDOS = {"Gasolina", "Diesel", "Electrico"}
 
     def __init__(self, marca, modelo, año, kilometraje, estado_actual, tipo_combustible):
         self._marca = marca
