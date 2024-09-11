@@ -26,22 +26,28 @@ class Main:
         return vehiculos_actuales
 
     def filtrar_vehiculos_por_comparacion(self, año, criterio):
-        vehiculos_filtrados = []
-        if criterio == 'mayor':
-            vehiculos_filtrados = [vehiculo for vehiculo in self.vehiculos if vehiculo.get_año() > año]
-        elif criterio == 'menor':
-            vehiculos_filtrados = [vehiculo for vehiculo in self.vehiculos if vehiculo.get_año() < año]
-        elif criterio == 'mayor o igual':
-            vehiculos_filtrados = [vehiculo for vehiculo in self.vehiculos if vehiculo.get_año() >= año]
-        elif criterio == 'menor o igual':
-            vehiculos_filtrados = [vehiculo for vehiculo in self.vehiculos if vehiculo.get_año() <= año]
-        else:
-            raise ValueError("Criterio no válido. Debe ser 'mayor', 'menor', 'mayor o igual' o 'menor o igual'.")
-        return vehiculos_filtrados
+        vehiculos_actuales = []
+        for vehiculo in self.vehiculos:
+            current_year = vehiculo.get_año()
+            if criterio == 'mayor':
+                if current_year > año:
+                    vehiculos_actuales.append(vehiculo)
+            elif criterio == 'mayor_igual':
+                if current_year >= año:
+                    vehiculos_actuales.append(vehiculo)
+            elif criterio == 'menor':
+                if current_year < año:
+                    vehiculos_actuales.append(vehiculo)
+            elif criterio == 'menor_igual':
+                if current_year <= año:
+                    vehiculos_actuales.append(vehiculo)
+            else:
+                raise ValueError("Criterio no válido. Debe ser 'mayor', 'menor', 'mayor_igual' o 'menor_igual'.")
+        return vehiculos_actuales
 
     def imprimir_vehiculos(self, lista_vehiculos):
         if not lista_vehiculos:
-            print("No hay vehículos en la lista.")
+            print("No hay vehículos para mostrar.")
             return
 
         for vehiculo in lista_vehiculos:
@@ -75,7 +81,7 @@ class Main:
                 print("Opción no válida, intente de nuevo.")
 
     def menu_filtro_año(self):
-        print("\nEscoja una opción de filtrado:")
+        print("\nEscoja una opción de filtrado")
         print("1. Año concreto")
         print("2. Rango de años")
         print("3. Mayor a un año")
@@ -100,8 +106,8 @@ class Main:
                 vehiculos_filtrados = self.filtrar_vehiculos_rango(limite_inf, limite_sup)
                 self.imprimir_vehiculos(vehiculos_filtrados)
             except ValueError:
-                print("Año no válido, por favor ingrese números válidos.")
-
+                print("Años no válidos, por favor ingrese números.")
+        
         elif opcion_filtro == '3':
             try:
                 año = int(input("Ingrese el año de referencia: "))
@@ -109,7 +115,7 @@ class Main:
                 self.imprimir_vehiculos(vehiculos_filtrados)
             except ValueError:
                 print("Año no válido, por favor ingrese un número.")
-
+        
         elif opcion_filtro == '4':
             try:
                 año = int(input("Ingrese el año de referencia: "))
@@ -117,32 +123,32 @@ class Main:
                 self.imprimir_vehiculos(vehiculos_filtrados)
             except ValueError:
                 print("Año no válido, por favor ingrese un número.")
-
+        
         elif opcion_filtro == '5':
             try:
                 año = int(input("Ingrese el año de referencia: "))
-                vehiculos_filtrados = self.filtrar_vehiculos_por_comparacion(año, 'mayor o igual')
+                vehiculos_filtrados = self.filtrar_vehiculos_por_comparacion(año, 'mayor_igual')
                 self.imprimir_vehiculos(vehiculos_filtrados)
             except ValueError:
                 print("Año no válido, por favor ingrese un número.")
-
+        
         elif opcion_filtro == '6':
             try:
                 año = int(input("Ingrese el año de referencia: "))
-                vehiculos_filtrados = self.filtrar_vehiculos_por_comparacion(año, 'menor o igual')
+                vehiculos_filtrados = self.filtrar_vehiculos_por_comparacion(año, 'menor_igual')
                 self.imprimir_vehiculos(vehiculos_filtrados)
             except ValueError:
                 print("Año no válido, por favor ingrese un número.")
-
+        
         else:
-            print("Opción inválida. Intente de nuevo.")
+            print("\nOpción inválida. Intente de nuevo.")
 
     def menu_agregar_vehiculo(self):
         print("\n----- Agregar Vehículo -----")
 
         marca = input("Ingrese la marca del vehículo: ")
         modelo = input("Ingrese el modelo del vehículo: ")
-
+        
         try:
             año = int(input("Ingrese el año del vehículo: "))
         except ValueError:
