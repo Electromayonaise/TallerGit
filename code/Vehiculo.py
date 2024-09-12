@@ -2,10 +2,10 @@ class Vehiculo:
 
     COMBUSTIBLES_PERMITIDOS = {"Gasolina", "Diesel", "Electrico"}
 
-    def __init__(self, marca, modelo, año, kilometraje, estado_actual, tipo_combustible, color):
+    def __init__(self, marca, modelo, anio, kilometraje, estado_actual, tipo_combustible, color):
         self._marca = marca
         self._modelo = modelo
-        self._año = año
+        self._anio = anio
         self._kilometraje = kilometraje
         self._estado_actual = estado_actual
         self._color = color
@@ -18,8 +18,8 @@ class Vehiculo:
     def get_modelo(self):
         return self._modelo
 
-    def get_año(self):
-        return self._año
+    def get_anio(self):
+        return self._anio
 
     def get_kilometraje(self):
         return self._kilometraje
@@ -40,8 +40,8 @@ class Vehiculo:
     def set_modelo(self, modelo):
         self._modelo = modelo
 
-    def set_año(self, año):
-        self._año = año
+    def set_anio(self, anio):
+        self._anio = anio
 
     def set_kilometraje(self, kilometraje):
         self._kilometraje = kilometraje

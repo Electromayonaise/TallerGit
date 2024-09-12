@@ -12,10 +12,10 @@ class Main:
             raise TypeError("El objeto debe ser de la clase Vehiculo")
 
 
-    def buscar_vehiculo_año_concreto(self, año):
+    def buscar_vehiculo_anio_concreto(self, anio):
         vehiculos_actuales = []
         for vehicule in self.vehiculos:
-            if vehicule.get_año() == año:
+            if vehicule.get_anio() == anio:
                 vehiculos_actuales.append(vehicule)
         return vehiculos_actuales
 
@@ -28,7 +28,7 @@ class Main:
         for vehicule in lista_vehiculos:
             print(f"Marca: {vehicule.get_marca()}")
             print(f"Modelo: {vehicule.get_modelo()}")
-            print(f"Año: {vehicule.get_año()}")
+            print(f"Año: {vehicule.get_anio()}")
             print(f"Kilometraje: {vehicule.get_kilometraje()}")
             print(f"Estado actual: {vehicule.get_estado_actual()}")
             print(f"Tipo de combustible: {vehicule.get_tipo_combustible()}")
@@ -42,12 +42,12 @@ class Main:
             print("1. Imprimir vehiculos")
             print("2. Filtrar vehiculos por año")
             print("3. Agregar vehiculo")
-            print("9. Salir del menu\n")
+            print("4. Salir del menu\n")
             opcion = input("Escoja una opcion \n")
             if opcion == '1':
                 main.imprimir_vehiculos(self.vehiculos)
             elif opcion == '2':
-                main.menu_filtro_año()
+                main.menu_filtro_anio()
             elif opcion == '3':
                 main.menu_agregar_vehiculo()
             elif opcion == '9':
@@ -55,15 +55,15 @@ class Main:
             else:
                 print("\nOpcion invalida")
 
-    def menu_filtro_año(self):
+    def menu_filtro_anio(self):
         print("\nEscoja una opcion de filtrado")
         print("1. Año concreto")
         print("2. Rango de años")
 
         opcion_filtro = input("Escoja una opcion \n")
         if opcion_filtro == '1':
-            año_concreto = int(input("Ingrese el año que desea buscar \n"))
-            resultado_busqueda = main.buscar_vehiculo_año_concreto(año_concreto)
+            anio_concreto = int(input("Ingrese el año que desea buscar \n"))
+            resultado_busqueda = main.buscar_vehiculo_anio_concreto(anio_concreto)
             if not resultado_busqueda:
                 print("No se encontraron vehiculos con ese año")
             else:
@@ -82,7 +82,7 @@ class Main:
     def filtrar_vehiculos_rango(self, limite_inf, limite_sup):
         vehiculos_actuales = []
         for vehicule in self.vehiculos:
-            current_year = vehicule.get_año()
+            current_year = vehicule.get_anio()
             if current_year >= limite_inf and current_year <= limite_sup:
                 vehiculos_actuales.append(vehicule)
         return vehiculos_actuales
@@ -93,7 +93,7 @@ class Main:
         marca = input("Ingrese la marca del vehículo: ")
         modelo = input("Ingrese el modelo del vehículo: ")
         try:
-            año = int(input("Ingrese el año del vehículo: "))
+            anio = int(input("Ingrese el año del vehículo: "))
         except ValueError:
             print("Año no válido, por favor ingrese un número.")
         try:
@@ -120,7 +120,9 @@ class Main:
             print("Opción no válida.")
             return
 
-        vehiculo = Vehiculo(marca, modelo, año, kilometraje, estado_actual, tipo_combustible)
+        color = input("Ingrese el color del vehículo: ")
+
+        vehiculo = Vehiculo(marca, modelo, anio, kilometraje, estado_actual, tipo_combustible, color)
         main.agregar_vehiculo(vehiculo)
         print("\n¡Vehículo agregado con éxito!")
         print(vehiculo)
