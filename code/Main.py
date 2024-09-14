@@ -58,6 +58,8 @@ class Main:
             print(f"Kilometraje: {vehicule.get_kilometraje()}")
             print(f"Estado actual: {vehicule.get_estado_actual()}")
             print(f"Tipo de combustible: {vehicule.get_tipo_combustible()}")
+            print(f"Color: {vehicule.get_color()}")
+            print(f"Potencia: {vehicule.get_potencia()}")
             print("-" * 30)
 
     def menu(self):
@@ -190,7 +192,9 @@ class Main:
 
         color = input("Ingrese el color del vehículo: ")
 
-        vehiculo = Vehiculo(marca, modelo, anio, kilometraje, estado_actual, tipo_combustible, color)
+        potencia = input("Ingrese la potencia del vehículo: ")
+
+        vehiculo = Vehiculo(marca, modelo, anio, kilometraje, estado_actual, tipo_combustible, color, potencia)
         self.agregar_vehiculo(vehiculo)
         print("\n¡Vehículo agregado con éxito!")
 
