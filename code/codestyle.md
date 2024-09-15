@@ -89,33 +89,6 @@ Este documento define el estándar de codificación para proyectos en Python (PE
    - Cada clase debe tener un docstring que explique su propósito y uso.
    - Los métodos que no modifiquen el estado del objeto deben declararse como **@staticmethod** o **@classmethod** según corresponda.
 
-## Documentación
-
-1. **Docstrings:**
-   - Todas las funciones, clases y métodos deben tener un **docstring** que explique su propósito.
-   - Seguir el formato de **Google Style** o **reStructuredText** para los docstrings:
-     ```python
-     def mi_funcion(parametro1, parametro2):
-         """
-         Realiza una operación específica con los parámetros dados.
-
-         Args:
-             parametro1 (str): El primer parámetro.
-             parametro2 (int): El segundo parámetro.
-
-         Returns:
-             bool: Verdadero si la operación es exitosa, Falso en caso contrario.
-         """
-         return True
-     ```
-
-2. **Anotaciones de Tipo:**
-   - Siempre que sea posible, agregar **anotaciones de tipo** para variables y funciones:
-     ```python
-     def sumar(a: int, b: int) -> int:
-         return a + b
-     ```
-
 ## Manejo de Errores
 
 1. **Excepciones:**
