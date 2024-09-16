@@ -20,26 +20,7 @@ Este documento define el estándar de codificación para proyectos en Python (PE
          pass
      ```
 
-3. **Comentarios:**
-   - Los comentarios deben ser claros y concisos. Explican el **por qué**, no el **cómo**.
-   - Usar comentarios en inglés o en español según la decisión del equipo, pero ser consistente en todo el proyecto.
-   - Para comentarios de una línea, usar `#` seguido de un espacio:
-     ```python
-     # Esto es un comentario de ejemplo.
-     ```
-   - Para bloques de comentarios, usar docstrings (`"""` o `'''`) dentro de funciones y clases.
-     ```python
-     """
-     Este es un comentario de bloque o docstring.
-     Describe de manera general la clase o función.
-     """
-     ```
-
-4. **Estructura del Código:**
-   - Se deben dejar **2 líneas en blanco** entre funciones y clases de nivel superior, y **1 línea en blanco** entre métodos dentro de una clase.
-   - El código debe estar organizado en bloques lógicos. Usar líneas en blanco para separar bloques de código relacionados.
-
-5. **Cadenas de Texto (Strings):**
+3. **Cadenas de Texto (Strings):**
    - Usar comillas simples `' '` o dobles `" "` de manera consistente para cadenas de texto. Recomendamos usar comillas simples, excepto cuando la cadena contenga comillas simples.
    - Usar **f-strings** (formato literal) para la interpolación de variables en cadenas:
      ```python
@@ -47,7 +28,7 @@ Este documento define el estándar de codificación para proyectos en Python (PE
      print(f"Hola, {nombre}")
      ```
 
-6. **Espaciado:**
+4. **Espaciado:**
    - Usar un espacio alrededor de los operadores (asignación, comparadores, etc.):
      ```python
      a = b + c
@@ -55,7 +36,7 @@ Este documento define el estándar de codificación para proyectos en Python (PE
          pass
      ```
 
-7. **Importaciones:**
+5. **Importaciones:**
    - Las importaciones deben hacerse en la parte superior del archivo, en bloques separados:
      - Importaciones estándar de Python.
      - Importaciones de terceros.
@@ -102,20 +83,6 @@ Este documento define el estándar de codificación para proyectos en Python (PE
 
 2. **No capturar excepciones genéricas:**
    - Evitar usar `except Exception:` de manera genérica a menos que sea absolutamente necesario.
-
-## Formato Automático
-
-1. **Formatos de Código:**
-   - Usar herramientas de formato automático como **Black** para garantizar que el código siga un estilo consistente:
-     ```bash
-     black nombre_del_archivo.py
-     ```
-
-2. **Linting:**
-   - Utilizar **flake8** o **pylint** para revisar la calidad del código y mantener el estilo de codificación correcto:
-     ```bash
-     flake8 nombre_del_archivo.py
-     ```
 
 ## Revisiones y Actualización
 
